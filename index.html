@@ -20,7 +20,7 @@ select{padding:12px;font-size:16px;border-radius:8px;width:80%}
 
 <div class="card">
 <h2>👨‍🎓 Student View</h2>
-<p>Topic ardham kaledha? Name lekunda cheppu</p>
+<p>Didn't not understand the topic signal anonymously</p>
 <select id="topic">
 <option>Recursion</option>
 <option>Loops</option>
@@ -48,7 +48,7 @@ select{padding:12px;font-size:16px;border-radius:8px;width:80%}
 let confused = 0;
 function vote(){
   confused++;
-  document.getElementById('msg').innerText = "Thanks! Teacher ki signal vellindi (Anonymous)";
+  document.getElementById('msg').innerText = Thanks! your signal is sent to the teacher (anonymous)
   update();
 }
 function clearVote(){
@@ -62,7 +62,7 @@ function update(){
   document.getElementById('percent').innerText = percent + "% Confused";
   document.getElementById('fill').style.width = percent + "%";
   if(percent >= 30){
-    document.getElementById('alert').innerText = "⚠️ Alert: Chala mandiki ardham kaledu. Topic malli cheppandi!";
+    document.getElementById('alert').innerText = Many students are confused. plese re-explain this topic!
   } else {
     document.getElementById('alert').innerText = "";
   }
