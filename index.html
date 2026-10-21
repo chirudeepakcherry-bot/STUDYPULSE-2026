@@ -20,7 +20,7 @@ select{padding:12px;font-size:16px;border-radius:8px;width:80%}
 
 <div class="card">
 <h2>👨‍🎓 Student View</h2>
-<p>Didn't not understand the topic signal anonymously</p>
+<p>Didn't understand the topic? Signal anonymously</p>
 <select id="topic">
 <option>Recursion</option>
 <option>Loops</option>
@@ -48,12 +48,12 @@ select{padding:12px;font-size:16px;border-radius:8px;width:80%}
 let confused = 0;
 function vote(){
   confused++;
-  document.getElementById('msg').innerText = Thanks! your signal is sent to the teacher (anonymous)
+  document.getElementById('msg').innerText = "Thanks! Your signal is sent to the teacher (Anonymous)";
   update();
 }
 function clearVote(){
   if(confused>0) confused--;
-  document.getElementById('msg').innerText = "Great! Continue chey";
+  document.getElementById('msg').innerText = "Great! Keep going";
   update();
 }
 function update(){
@@ -62,7 +62,7 @@ function update(){
   document.getElementById('percent').innerText = percent + "% Confused";
   document.getElementById('fill').style.width = percent + "%";
   if(percent >= 30){
-    document.getElementById('alert').innerText = Many students are confused. plese re-explain this topic!
+    document.getElementById('alert').innerText = "⚠️ Alert: Many students are confused. Please re-explain this topic!";
   } else {
     document.getElementById('alert').innerText = "";
   }
