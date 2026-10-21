@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>StudyPulse - Live Doubt Meter</title>
+<style>
+body{font-family:Arial,sans-serif;background:#0f172a;color:white;text-align:center;padding:20px}
+.card{background:#1e293b;padding:20px;border-radius:15px;max-width:500px;margin:20px auto}
+button{padding:15px 25px;font-size:18px;border:none;border-radius:10px;cursor:pointer;margin:5px}
+.red{background:#ef4444;color:white}.green{background:#22c55e;color:white}.blue{background:#3b82f6;color:white}
+.bar{height:30px;background:#334155;border-radius:10px;overflow:hidden;margin:10px 0}
+.fill{height:100%;background:#ef4444;width:0%;transition:0.5s}
+select{padding:12px;font-size:16px;border-radius:8px;width:80%}
+</style>
+</head>
+<body>
+<h1>📊 StudyPulse</h1>
+<p>Live Classroom Doubt Meter</p>
+
+<div class="card">
+<h2>👨‍🎓 Student View</h2>
+<p>Topic ardham kaledha? Name lekunda cheppu</p>
+<select id="topic">
+<option>Recursion</option>
+<option>Loops</option>
+<option>Functions</option>
+<option>Pointers</option>
+<option>OOP Concepts</option>
+</select>
+<br><br>
+<button class="red" onclick="vote()">😕 Not Clear</button>
+<button class="green" onclick="clearVote()">😊 Clear</button>
+<p id="msg"></p>
+</div>
+
+<div class="card">
+<h2>👩‍🏫 Teacher Dashboard</h2>
+<h3>Total Students: 60</h3>
+<h3>Confused: <span id="count">0</span></h3>
+<div class="bar"><div class="fill" id="fill"></div></div>
+<h3 id="percent">0% Confused</h3>
+<h3 id="alert"></h3>
+<button class="blue" onclick="reset()">Reset Class</button>
+</div>
+
+<script>
+let confused = 0;
+function vote(){
+  confused++;
+  document.getElementById('msg').innerText = "Thanks! Teacher ki signal vellindi (Anonymous)";
+  update();
+}
+function clearVote(){
+  if(confused>0) confused--;
+  document.getElementById('msg').innerText = "Great! Continue chey";
+  update();
+}
+function update(){
+  let percent = Math.round((confused/60)*100);
+  document.getElementById('count').innerText = confused;
+  document.getElementById('percent').innerText = percent + "% Confused";
+  document.getElementById('fill').style.width = percent + "%";
+  if(percent >= 30){
+    document.getElementById('alert').innerText = "⚠️ Alert: Chala mandiki ardham kaledu. Topic malli cheppandi!";
+  } else {
+    document.getElementById('alert').innerText = "";
+  }
+}
+function reset(){
+  confused = 0;
+  update();
+}
+</script>
+</body>
+</html>
